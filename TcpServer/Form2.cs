@@ -41,14 +41,20 @@ namespace TcpClient
 
         private void Events_DataReceived(object? sender, DataReceivedEventArgs e)
         {
-            txtInfo.Text += $"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
-        }
+            this.Invoke((MethodInvoker)delegate
+            {
+                txtInfo.Text += $"{e.IpPort}: {Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
+            });
+            }
 
         private void Events_ClientConnected(object? sender, ConnectionEventArgs e)
         {
-       
-            txtInfo.Text += $"{e.IpPort}.connected.{Environment.NewLine}";
-            listtClientIp.Items.Add(e.IpPort);
+            this.Invoke((MethodInvoker)delegate
+            {
+
+                txtInfo.Text += $"{e.IpPort}.connected.{Environment.NewLine}";
+                listtClientIp.Items.Add(e.IpPort);
+            });
         }
 
         private void btnSend_Click(object sender, EventArgs e)

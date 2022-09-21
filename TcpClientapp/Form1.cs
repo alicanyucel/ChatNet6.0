@@ -22,19 +22,27 @@ namespace TcpClientapp
 
         private void Events_Disconnected(object? sender, ConnectionEventArgs e)
         {
-            txtBaslik.Text += $"Server.diconnected.{Environment.NewLine}";
-        }
+            this.Invoke((MethodInvoker)delegate
+            {
+                txtBaslik.Text += $"Server.diconnected.{Environment.NewLine}";
+            });
+            }
 
         private void Events_DataReceived(object? sender, DataReceivedEventArgs e)
         {
+            this.Invoke((MethodInvoker)delegate
+            {
 
-            txtBaslik.Text += $"Server:{Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
-        }
+                txtBaslik.Text += $"Server:{Encoding.UTF8.GetString(e.Data)}{Environment.NewLine}";
+            });
+            }
 
         private void Events_Connected(object? sender, ConnectionEventArgs e)
         {
-            txtBaslik.Text += $"Server connected. {Environment.NewLine}";
-
+            this.Invoke((MethodInvoker)delegate
+            {
+                txtBaslik.Text += $"Server connected. {Environment.NewLine}";
+            });
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -53,6 +61,7 @@ namespace TcpClientapp
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+            // client da baðlanabiliyor mesaj gönderebiliyor
             try
             {
                 client.Connect();

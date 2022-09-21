@@ -54,7 +54,7 @@
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(257, 23);
             this.txtIp.TabIndex = 1;
-            this.txtIp.Text = "10.10.105.249:57658";
+            this.txtIp.Text = "10.10.105.249:139";
             this.txtIp.TextChanged += new System.EventHandler(this.txtIp_TextChanged);
             // 
             // txtInfo
@@ -119,7 +119,7 @@
             this.listtClientIp.Size = new System.Drawing.Size(196, 244);
             this.listtClientIp.TabIndex = 8;
             // 
-            // Form1
+            // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +133,7 @@
             this.Controls.Add(this.txtInfo);
             this.Controls.Add(this.txtIp);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Form2";
             this.Text = "TcpServer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
